@@ -123,6 +123,7 @@
 //! [`TransformHermiteEasingPlugin`]: crate::hermite::TransformHermiteEasingPlugin
 
 #![no_std]
+#![allow(clippy::needless_doctest_main)]
 #![expect(clippy::type_complexity)]
 #![warn(missing_docs)]
 

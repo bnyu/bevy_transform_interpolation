@@ -123,7 +123,6 @@
 //! [`TransformHermiteEasingPlugin`]: crate::hermite::TransformHermiteEasingPlugin
 
 #![no_std]
-#![expect(clippy::needless_doctest_main)]
 #![expect(clippy::type_complexity)]
 #![warn(missing_docs)]
 
@@ -141,14 +140,14 @@ pub mod hermite;
 pub mod prelude {
     #[doc(inline)]
     pub use crate::{
+        NoRotationEasing, NoScaleEasing, NoTransformEasing, NoTranslationEasing,
+        TransformEasingPlugin,
         extrapolation::*,
         hermite::{
             RotationHermiteEasing, TransformHermiteEasing, TransformHermiteEasingPlugin,
             TranslationHermiteEasing,
         },
         interpolation::*,
-        NoRotationEasing, NoScaleEasing, NoTransformEasing, NoTranslationEasing,
-        TransformEasingPlugin,
     };
 }
 
@@ -515,30 +514,29 @@ pub fn reset_easing_states_on_transform_change(
                 return;
             }
 
-            if let Some(mut translation_easing) = translation_easing {
-                if let (Some(start), Some(end)) = (translation_easing.start, translation_easing.end)
-                {
-                    if transform.translation != start && transform.translation != end {
-                        translation_easing.start = None;
-                        translation_easing.end = None;
-                    }
-                }
+            if let Some(mut translation_easing) = translation_easing
+                && let (Some(start), Some(end)) = (translation_easing.start, translation_easing.end)
+                && transform.translation != start
+                && transform.translation != end
+            {
+                translation_easing.start = None;
+                translation_easing.end = None;
             }
-            if let Some(mut rotation_easing) = rotation_easing {
-                if let (Some(start), Some(end)) = (rotation_easing.start, rotation_easing.end) {
-                    if transform.rotation != start && transform.rotation != end {
-                        rotation_easing.start = None;
-                        rotation_easing.end = None;
-                    }
-                }
+            if let Some(mut rotation_easing) = rotation_easing
+                && let (Some(start), Some(end)) = (rotation_easing.start, rotation_easing.end)
+                && transform.rotation != start
+                && transform.rotation != end
+            {
+                rotation_easing.start = None;
+                rotation_easing.end = None;
             }
-            if let Some(mut scale_easing) = scale_easing {
-                if let (Some(start), Some(end)) = (scale_easing.start, scale_easing.end) {
-                    if transform.scale != start && transform.scale != end {
-                        scale_easing.start = None;
-                        scale_easing.end = None;
-                    }
-                }
+            if let Some(mut scale_easing) = scale_easing
+                && let (Some(start), Some(end)) = (scale_easing.start, scale_easing.end)
+                && transform.scale != start
+                && transform.scale != end
+            {
+                scale_easing.start = None;
+                scale_easing.end = None;
             }
         },
     );

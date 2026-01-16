@@ -18,9 +18,9 @@ use bevy::{
     prelude::*,
 };
 use bevy_transform_interpolation::{
+    VelocitySource,
     extrapolation::{TransformExtrapolation, TransformExtrapolationPlugin},
     prelude::*,
-    VelocitySource,
 };
 
 const MOVEMENT_SPEED: f32 = 250.0;

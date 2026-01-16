@@ -61,7 +61,7 @@ First, add `bevy_transform_interpolation` to your dependencies in `Cargo.toml`:
 
 ```toml
 [dependencies]
-bevy_transform_interpolation = "0.2"
+bevy_transform_interpolation = "0.4"
 ```
 
 To enable `Transform` interpolation, add the `TransformInterpolationPlugin` to your app:
@@ -156,6 +156,7 @@ and `NonlinearRotationEasing` marker components. Custom easing solutions can be 
 
 | `bevy`  | `bevy_transform_interpolation` |
 | ------- | ------------------------------ |
+| 0.18    | 0.4                            |
 | 0.17    | 0.3                            |
 | 0.16    | 0.2                            |
 | 0.15    | 0.1                            |

@@ -18,7 +18,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! bevy_transform_interpolation = "0.1"
+//! bevy_transform_interpolation = "0.4"
 //! ```
 //!
 //! To enable [`Transform`] interpolation, add the [`TransformInterpolationPlugin`] to your app:
